@@ -1,0 +1,20 @@
+spring:
+##redis配置
+  profiles: test
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+  datasource:
+    url: jdbc:mysql://rds4y3ify14fg0auc3f9.mysql.rds.aliyuncs.com:3306
+    username: xiaoshuidi
+    password: xiaoshuidi
+server:
+  port: 8080

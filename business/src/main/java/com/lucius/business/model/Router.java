@@ -58,7 +58,7 @@ public class Router extends BaseModel {
 	/**
 	 * 备注
 	 */
-	@Column(columnDefinition = "varchar(500) remark '备注'")
+	@Column(columnDefinition = "varchar(500) comment '备注'")
 	private String remark;
 
 	
