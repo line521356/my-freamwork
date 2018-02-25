@@ -3,7 +3,6 @@ package com.lucius.business.model;
 
 import com.lucius.common.support.model.base.BaseModel;
 
-import javax.persistence.Access;
 import javax.persistence.*;
 import java.util.List;
 

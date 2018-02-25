@@ -1,8 +1,12 @@
 package com.lucius.server;
 
+import com.lucius.common.support.dao.reposiotry.base.BaseRepositoryFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 /**
  *
  * @author Lucius
@@ -10,7 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @Emial lucius_521356@163.com
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.lucius"})
+//@ComponentScan(basePackages = {"com.lucius"})
+@EnableJpaRepositories(basePackages = {"com.lucius"},repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
+@EntityScan("com.lucius.business.model")
 public class ServerApplication {
 
 	public static void main(String[] args) {
