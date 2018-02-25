@@ -1,4 +1,4 @@
-package com.lucius.common.cache.enums;
+package com.lucius.common.utils.cache.enums;
 
 /**
  *

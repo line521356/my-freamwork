@@ -1,4 +1,4 @@
-package com.lucius.common.support;
+package com.lucius.common.support.dao;
 
 
 import com.lucius.common.support.model.Order;

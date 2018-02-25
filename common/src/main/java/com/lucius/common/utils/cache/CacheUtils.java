@@ -1,8 +1,8 @@
-package com.lucius.common.cache;
+package com.lucius.common.utils.cache;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.lucius.common.cache.enums.ExpireTime;
+import com.lucius.common.utils.cache.enums.ExpireTime;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundHashOperations;

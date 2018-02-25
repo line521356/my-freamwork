@@ -1,4 +1,4 @@
-package com.lucius.common.cache;
+package com.lucius.common.utils.cache;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
