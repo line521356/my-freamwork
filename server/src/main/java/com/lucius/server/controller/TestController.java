@@ -1,6 +1,6 @@
 package com.lucius.server.controller;
 
-import com.lucius.common.controller.BaseController;
+import com.lucius.common.support.controller.BaseControllerSupport;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/test")
-public class TestController extends BaseController {
+public class TestController extends BaseControllerSupport {
 
     @GetMapping("/get")
     public String getMapping(){

@@ -659,8 +659,9 @@ public class ValidatorUtils {
          * @return int 得到的字符串长度
          */
         public static int length(String str) {
-            if (str == null)
+            if (str == null){
                 return 0;
+            }
             char[] c = str.toCharArray();
             int len = 0;
             for (int i = 0; i < c.length; i++) {
