@@ -7,5 +7,5 @@ package com.lucius.common.Service;
  * create by 2018/2/17
  * @Emial Lucius.li@ixiaoshuidi.com
  */
-public interface BaseService <T>{
+public interface BaseService <Model,PK>{
 }

@@ -1,9 +1,8 @@
 package com.lucius.server.controller;
 
+import com.lucius.business.model.House;
 import com.lucius.common.support.controller.BaseControllerSupport;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <br>
@@ -20,5 +19,10 @@ public class TestController extends BaseControllerSupport {
     public String getMapping(){
         System.out.println("test*****************************");
         return "success";
+    }
+
+    @PostMapping("/post")
+    public String addHouse(@RequestBody House house){
+        return null;
     }
 }
