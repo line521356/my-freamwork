@@ -20,10 +20,10 @@ public class BaseModel implements Serializable {
      * 记录主键
      */
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(length = 32, nullable = false, unique = true, columnDefinition = "varchar(32) comment '记录主键'")
-    private String id;
+    @GeneratedValue(generator = "idGenerator")
+    @GenericGenerator(name = "idGenerator", strategy = "identity")
+    @Column(length = 32, nullable = false, unique = true, columnDefinition = "int(11) comment '记录主键'")
+    private Long id;
 
     /**
      * 记录状态
@@ -59,14 +59,14 @@ public class BaseModel implements Serializable {
     /**
      * 获取记录主键
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * 设置记录主键
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

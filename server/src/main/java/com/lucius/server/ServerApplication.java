@@ -14,9 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @Emial lucius_521356@163.com
  */
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.lucius"})
+@ComponentScan(basePackages = {"com.lucius"})
 @EnableJpaRepositories(basePackages = {"com.lucius"},repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
-@EntityScan("com.lucius.business.model")
+@EntityScan(basePackages = {"com.lucius.business.model"})
 public class ServerApplication {
 
 	public static void main(String[] args) {

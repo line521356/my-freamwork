@@ -1,7 +1,14 @@
 package com.lucius.server.controller;
 
 import com.lucius.business.model.House;
+import com.lucius.business.service.HouseService;
 import com.lucius.common.support.controller.BaseControllerSupport;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -15,14 +22,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/test")
 public class TestController extends BaseControllerSupport {
 
+    @Autowired
+    HouseService houseService;
+
     @GetMapping("/get")
-    public String getMapping(){
-        System.out.println("test*****************************");
-        return "success";
+    public Page getMapping(){
+
+        return houseService.findByModel(new House());
     }
 
-    @PostMapping("/post")
-    public String addHouse(@RequestBody House house){
-        return null;
+    @GetMapping("/post")
+    public String addHouse(){
+        House house  = new House();
+        house.setDoor("111111111111111111111111111");
+        houseService.addHouse(house);
+        return "success";
     }
 }

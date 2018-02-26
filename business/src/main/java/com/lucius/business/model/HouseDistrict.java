@@ -27,7 +27,7 @@ public class HouseDistrict extends BaseModel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public HouseDistrict(String id,String onLineSynCode, String districtName,HouseStreet houseStreet,Long houseCount){
+	public HouseDistrict(Long id,String onLineSynCode, String districtName,HouseStreet houseStreet,Long houseCount){
 		 this.setId(id);
 		 this.onLineSynCode=onLineSynCode;
 	     this.districtName=districtName;

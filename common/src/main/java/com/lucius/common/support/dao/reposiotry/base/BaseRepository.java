@@ -8,15 +8,16 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by konghao on 2016/12/7.
+ * <br>
+ *
+ * @author Lucius
+ * create by 2018/2/17
+ * @Emial Lucius.li@ixiaoshuidi.com
  */
 @NoRepositoryBean
 @Transactional(readOnly=true)
 public interface BaseRepository<T,ID extends Serializable> extends JpaRepository<T,ID> {
-    public List<Object[]> listBySQL(String sql);
-    
-    @Transactional
-    public void updateBySql(String sql, Object... args);
-    @Transactional
-    public void updateByHql(String hql, Object... args);
+
+    boolean support(String modelType);
+
 }

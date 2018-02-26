@@ -19,7 +19,7 @@ public class Person extends BaseModel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Person(String id,Long houseCount){  
+	public Person(Long id,Long houseCount){
 	     setId(id);
 	     this.houseCount=houseCount;
 	   } 

@@ -11,7 +11,11 @@ import javax.persistence.EntityManager;
 import java.io.Serializable;
 
 /**
- * Created by konghao on 2016/12/7.
+ * <br>
+ *
+ * @author Lucius
+ * create by 2018/2/17
+ * @Emial Lucius.li@ixiaoshuidi.com
  */
 @SuppressWarnings({"rawtypes","unchecked"})
 public class BaseRepositoryFactoryBean<R extends JpaRepository<T, I>, T, I extends Serializable>

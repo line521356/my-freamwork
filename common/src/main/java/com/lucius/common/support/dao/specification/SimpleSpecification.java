@@ -9,7 +9,11 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * Created by konghao on 2016/12/15.
+ * <br>
+ *
+ * @author Lucius
+ * create by 2018/2/17
+ * @Emial Lucius.li@ixiaoshuidi.com
  */
 public class SimpleSpecification<T> implements Specification<T> {
 
@@ -33,7 +37,9 @@ public class SimpleSpecification<T> implements Specification<T> {
                 continue;
             }
             Predicate pre = generatePredicate(root,criteriaBuilder,op);
-            if(pre==null) continue;
+            if(pre==null){
+                continue;
+            }
             if("and".equalsIgnoreCase(op.getJoin())) {
                 resultPre = criteriaBuilder.and(resultPre,pre);
             } else if("or".equalsIgnoreCase(op.getJoin())) {
@@ -47,7 +53,6 @@ public class SimpleSpecification<T> implements Specification<T> {
         /*
         * 根据不同的操作符返回特定的查询*/
         if("=".equalsIgnoreCase(op.getOper())) {
-//            System.out.println(op.getKey()+","+op.getValue());
             return criteriaBuilder.equal(root.get(op.getKey()),op.getValue());
         } else if(">=".equalsIgnoreCase(op.getOper())) {
             return criteriaBuilder.ge(root.get(op.getKey()), (Number)op.getValue());

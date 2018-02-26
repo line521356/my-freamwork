@@ -31,7 +31,7 @@ public class ServerApplicationTests {
 
 	@Test
 	public void whenTestGetSuccess() throws Exception {
-		String result = mockMvc.perform(MockMvcRequestBuilders.get("/test/get"))
+		String result = mockMvc.perform(MockMvcRequestBuilders.post("/test/post"))
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 		System.out.println(result);

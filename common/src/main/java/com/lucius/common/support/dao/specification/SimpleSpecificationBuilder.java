@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by konghao on 2016/12/15.
+ * <br>
+ *
+ * @author Lucius
+ * create by 2018/2/17
+ * @Emial Lucius.li@ixiaoshuidi.com
  */
 public class SimpleSpecificationBuilder<T> {
 

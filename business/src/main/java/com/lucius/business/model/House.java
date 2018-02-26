@@ -633,7 +633,7 @@ public class House extends BaseModel {
 		this.districtName = districtName;
 	}
 
-	public String getDistrictId() {
+	public Long getDistrictId() {
 		if(this.houseUnit!=null){
 			HouseBlock block=this.houseUnit.getHouseBlock();
 			if(block!=null){
