@@ -1,6 +1,7 @@
 package com.lucius.business.service;
 
 
+import com.lucius.business.condition.HouseCondition;
 import com.lucius.business.model.House;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,5 +17,7 @@ public interface HouseService {
 
     void addHouse(House house);
 
-    Page <House> findByModel(House model);
+    Page <House> findByModel(HouseCondition houseCondition,Pageable pageable);
+
+    House findById(Long id);
 }

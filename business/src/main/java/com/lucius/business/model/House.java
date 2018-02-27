@@ -91,8 +91,8 @@ public class House extends BaseModel {
 	/**
 	 * 房源拥有的电表集合
 	 */
-	@OneToMany(mappedBy = "house", cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.LAZY)
-	private List<Ammeter> ammeterList;
+//	@OneToMany(mappedBy = "house", cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.LAZY)
+//	private List<Ammeter> ammeterList;
 	
 	/**
 	 * 房源拥有的网卡集合
@@ -430,13 +430,13 @@ public class House extends BaseModel {
 		this.hardwareList = hardwareList;
 	}
 
-	public List<Ammeter> getAmmeterList() {
-		return ammeterList;
-	}
-
-	public void setAmmeterList(List<Ammeter> ammeterList) {
-		this.ammeterList = ammeterList;
-	}
+//	public List<Ammeter> getAmmeterList() {
+//		return ammeterList;
+//	}
+//
+//	public void setAmmeterList(List<Ammeter> ammeterList) {
+//		this.ammeterList = ammeterList;
+//	}
 
 	public List<DoorLock> getDoorLockList() {
 		return doorLockList;

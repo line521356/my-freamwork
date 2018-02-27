@@ -1,23 +1,19 @@
 package com.lucius.business.service.impl;
 
+import com.lucius.business.condition.HouseCondition;
 import com.lucius.business.dao.HouseRepository;
 import com.lucius.business.model.House;
 import com.lucius.business.service.HouseService;
 import com.lucius.common.support.dao.reposiotry.kit.SimplePageBuilder;
 import com.lucius.common.support.dao.reposiotry.kit.SimpleSortBuilder;
-import com.lucius.common.support.dao.specification.SimpleSpecification;
 import com.lucius.common.support.dao.specification.SimpleSpecificationBuilder;
-import com.lucius.common.support.dao.specification.SpecificationOperator;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.plugin.core.PluginRegistry;
-import org.springframework.plugin.core.SimplePluginRegistry;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * <br>
@@ -36,14 +32,28 @@ public class HosueServiceImpl implements HouseService{
     }
 
     @Override
-    public Page<House> findByModel(House model) {
-        Specification <House> specification = new SimpleSpecificationBuilder()
-                .add("roomNo",":","x")
-                .generateSpecification();
+    public Page<House> findByModel(HouseCondition houseCondition,Pageable pageable) {
+        SimpleSpecificationBuilder simpleSpecificationBuilder = new SimpleSpecificationBuilder();
+        if (houseCondition.getId() != null) {
+            simpleSpecificationBuilder.add("id", "=", houseCondition.getId());
+        }
+        if(StringUtils.isNotBlank(houseCondition.getDoor())){
+            simpleSpecificationBuilder.add("door", ":", houseCondition.getDoor());
+        }
+        if(StringUtils.isNotBlank(houseCondition.getRemark())){
+            simpleSpecificationBuilder.add("remark", ":", houseCondition.getRemark());
+        }
+        Specification <House> specification = simpleSpecificationBuilder.generateSpecification();
         Page <House> page = houseRepository.findAll(specification
-                ,SimplePageBuilder.generate(0,10
-                        , SimpleSortBuilder.generateSort("id")));
+                ,SimplePageBuilder.generate(pageable.getPageNumber(),pageable.getPageSize()
+                        , SimpleSortBuilder.generateSort("id_d")));
         return page;
+
+    }
+
+    @Override
+    public House findById(Long id) {
+        return houseRepository.getOne(id);
     }
 
 

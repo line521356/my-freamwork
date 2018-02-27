@@ -81,9 +81,9 @@ public class Ammeter extends BaseModel {
 	@JoinColumn(name = "supplierProductId")
 	private SupplierProduct supplierProduct;
 
-	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.LAZY)
-	@JoinColumn(name = "houseId")
-	private House house;
+//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "houseId")
+//	private House house;
 
 	/**
 	 * 该电表所拥有的wifi在线日志信息
@@ -222,13 +222,13 @@ public class Ammeter extends BaseModel {
 		this.offLineSynCode = offLineSynCode;
 	}
 
-	public House getHouse() {
-		return house;
-	}
-
-	public void setHouse(House house) {
-		this.house = house;
-	}
+//	public House getHouse() {
+//		return house;
+//	}
+//
+//	public void setHouse(House house) {
+//		this.house = house;
+//	}
 
 	public List<HardwareOnlineLog> getHardwareOnlineLogList() {
 		return hardwareOnlineLogList;

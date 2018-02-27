@@ -1,6 +1,7 @@
 package com.lucius.business.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lucius.common.support.model.base.BaseModel;
 
 import javax.persistence.*;
@@ -36,17 +37,17 @@ public class Supplier extends BaseModel {
 	@Column(columnDefinition = "varchar(128) comment '说明描述'")
 	private String description;
 
-	/**
-	 * 供应商拥有的产品集合
-	 */
-	@OneToMany(mappedBy = "supplier", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-	private List<SupplierProduct> supplierProducts;
-
-	/**
-	 * 供应商拥有的账号集合
-	 */
-	@OneToMany(mappedBy = "supplier", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-	private List<SupplierAccount> supplierAccounts;
+//	/**
+//	 * 供应商拥有的产品集合
+//	 */
+//	@OneToMany(mappedBy = "supplier", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+//	private List<SupplierProduct> supplierProducts;
+//
+//	/**
+//	 * 供应商拥有的账号集合
+//	 */
+//	@OneToMany(mappedBy = "supplier", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+//	private List<SupplierAccount> supplierAccounts;
 	
 
 	public String getName() {
@@ -73,22 +74,5 @@ public class Supplier extends BaseModel {
 		this.description = description;
 	}
 
-	public List<SupplierProduct> getSupplierProducts() {
-		return supplierProducts;
-	}
-
-	public void setSupplierProducts(List<SupplierProduct> supplierProducts) {
-		this.supplierProducts = supplierProducts;
-	}
-
-	public List<SupplierAccount> getSupplierAccounts() {
-		return supplierAccounts;
-	}
-
-	public void setSupplierAccounts(List<SupplierAccount> supplierAccounts) {
-		this.supplierAccounts = supplierAccounts;
-	}
-
-	
 
 }
