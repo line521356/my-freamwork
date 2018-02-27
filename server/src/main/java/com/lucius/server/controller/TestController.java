@@ -7,6 +7,7 @@ import com.lucius.business.service.AmmeterService;
 import com.lucius.business.service.HouseService;
 import com.lucius.common.support.controller.BaseControllerSupport;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/test")
+@Api("房源")
 public class TestController extends BaseControllerSupport {
 
     @Autowired

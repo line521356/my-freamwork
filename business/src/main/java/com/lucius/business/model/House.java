@@ -3,12 +3,14 @@ package com.lucius.business.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lucius.business.constraint.MyConstraint;
 import com.lucius.business.enums.DoorType;
 import com.lucius.business.enums.HouseSource;
 import com.lucius.business.enums.HouseStructureType;
 import com.lucius.business.enums.RentType;
 import com.lucius.common.support.model.base.BaseModel;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.util.List;
@@ -47,7 +49,10 @@ public class House extends BaseModel {
 	/**
 	 * 门号
 	 */
+	@JsonIgnore
+	@NotBlank(message = "密码不能为空")
 	@Column(columnDefinition = "varchar(32) comment '门号'")
+	@MyConstraint(message = "door不能重复")
 	private String door;
 	
 	/**
