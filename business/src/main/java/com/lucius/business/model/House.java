@@ -3,6 +3,7 @@ package com.lucius.business.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lucius.business.enums.DoorType;
 import com.lucius.business.enums.HouseSource;
 import com.lucius.business.enums.HouseStructureType;

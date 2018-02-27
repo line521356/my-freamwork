@@ -1,5 +1,6 @@
 package com.lucius.common.support.model.base;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lucius.common.support.model.RecordStatus;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.annotations.GenericGenerator;
@@ -13,6 +14,7 @@ import java.util.Date;
  * 所有model均继承此类
  */
 @MappedSuperclass
+@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler","modelName","clazzName"})
 public class BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
 

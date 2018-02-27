@@ -7,6 +7,8 @@ import com.lucius.business.service.AmmeterService;
 import com.lucius.business.service.HouseService;
 import com.lucius.common.support.controller.BaseControllerSupport;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +35,8 @@ public class TestController extends BaseControllerSupport {
     AmmeterService ammeterService;
 
     @GetMapping(value = "/list")
+    @ApiOperation(value="获取房源list")
+    @ApiImplicitParam(name="house",value="house实体",required = true, dataType = "House")
     public ResponseEntity<Page> list(HouseCondition houseCondition,Pageable pageable){
         return ResponseEntity.ok(houseService.findByModel(houseCondition,pageable));
     }
@@ -42,7 +46,7 @@ public class TestController extends BaseControllerSupport {
         return ResponseEntity.ok(houseService.findById(id));
     }
 
-    @GetMapping("/post")
+    @PostMapping("/post")
     public String addHouse(){
         House house  = new House();
         house.setDoor("111111111111111111111111111");
