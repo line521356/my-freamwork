@@ -19,7 +19,8 @@ import java.util.Date;
 @org.hibernate.annotations.Table(appliesTo = "ammeter_use_record", comment = "电表记录")
 public class AmmeterUseRecord extends BaseModel {
 
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = -3299818945660296042L;
 
     @Column(name = "public_money",columnDefinition = "float(11) comment '公摊使用金额'", scale = 2)
     private Double publicMoney;

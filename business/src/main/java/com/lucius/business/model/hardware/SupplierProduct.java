@@ -20,7 +20,8 @@ import javax.persistence.*;
 @Table(name = "supplier_product")
 @org.hibernate.annotations.Table(appliesTo = "supplier_product", comment = "供应商产品信息")
 public class SupplierProduct extends BaseModel {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 8215492206592533599L;
 	/**
 	 * 产品名
 	 */

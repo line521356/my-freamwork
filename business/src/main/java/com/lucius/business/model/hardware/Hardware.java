@@ -22,7 +22,9 @@ import javax.persistence.*;
 @Table(name = "hardware")
 @org.hibernate.annotations.Table(appliesTo = "hardware", comment = "硬件设备信息模型")
 public class Hardware extends BaseModel {
-	private static final long serialVersionUID = 1L;
+
+
+	private static final long serialVersionUID = 2365919365799223721L;
 
 	/**
 	 * 房源id

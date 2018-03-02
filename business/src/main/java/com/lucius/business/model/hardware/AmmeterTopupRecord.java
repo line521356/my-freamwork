@@ -18,6 +18,8 @@ import javax.persistence.*;
 @org.hibernate.annotations.Table(appliesTo = "ammeter_record", comment = "电表同步电量记录")
 public class AmmeterTopupRecord extends BaseModel {
 
+    private static final long serialVersionUID = 3225061981913351263L;
+
     @Column(columnDefinition = "varchar(128) comment '是否成功'")
     private String isSuccess;
 

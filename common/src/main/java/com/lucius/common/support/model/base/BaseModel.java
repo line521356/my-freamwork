@@ -1,7 +1,7 @@
 package com.lucius.common.support.model.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.lucius.common.support.model.RecordStatus;
+import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -10,14 +10,18 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * model基类
- * 所有model均继承此类
+ * <br>
+ *  model类 所有类均继承于此类
+ * @author Lucius
+ * create by 2018/2/28
+ * @Emial Lucius.li@ixiaoshuidi.com
  */
+@Data
 @MappedSuperclass
 @JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler","modelName","clazzName"})
 public class BaseModel implements Serializable {
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = -2693221461836848144L;
     /**
      * 记录主键
      */
@@ -27,172 +31,60 @@ public class BaseModel implements Serializable {
     @Column(length = 32, nullable = false, unique = true, columnDefinition = "int(11) comment '记录主键'")
     private Long id;
 
-    /**
-     * 记录状态
-     */
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar(32) default 'AVAILABLE' comment '记录状态'")
-    private RecordStatus status;
 
     /**
      * 创建记录时间
      */
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(columnDefinition = "datetime comment '创建记录时间'", updatable = false)
-    private Date createTime;
+    @Column(name = "created_at",columnDefinition = "datetime comment '创建记录时间'", updatable = false)
+    @org.hibernate.annotations.CreationTimestamp
+    private Date createdAt;
+
     /**
      * 更新记录时间
      */
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(columnDefinition = "datetime comment '更新记录时间'")
-    private Date updateTime;
+    @Column(name = "updated_at",columnDefinition = "datetime comment '更新记录时间'", updatable = false)
+    @org.hibernate.annotations.UpdateTimestamp
+    private Date updatedAt;
 
     /**
-     * 版本号 有效数据永远为1
+     * 删除记录时间
      */
-    @Column(name = "version",columnDefinition = "varchar(50) comment '版本号' default '1'")
-    private String version;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "deleted_at",columnDefinition = "datetime comment '删除时间'", updatable = false)
+    private Date deletedAt;
 
     /**
-     * 开始时间（用于查询）
+     * 创建人
      */
-    @Transient
-    private Date dateStart;
-    /**
-     * 结束时间（用于查询）
-     */
-    @Transient
-    private Date dateEnd;
+    @Column(name = "created_by",columnDefinition = "int(11) comment '创建人'")
+    private Long createdBy;
 
     /**
-     * 获取记录主键
+     * 更新人
      */
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "updated_by",columnDefinition = "int(11) comment '更新人'")
+    private Long updatedBy;
 
     /**
-     * 设置记录主键
+     * 删除人
      */
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "deleted_by",columnDefinition = "int(11) comment '删除人'")
+    private Long deletedBy;
+
 
     /**
-     * 获取记录状态
-     *
-     * @return status 枚举类型记录状态
+     * 版本号
      */
-    public RecordStatus getStatus() {
-        return status;
-    }
+    @Column(name = "version",columnDefinition = "int(11) comment '版本号' default '0'")
+    private Long version;
 
     /**
-     * 设置记录状态
-     *
-     * @param status
-     *            枚举类型记录状态
+     * 是否被删除 0未删除 1已删除
      */
-    public void setStatus(RecordStatus status) {
-        this.status = status;
-    }
-
-    /**
-     * 获取创建记录时间
-     *
-     * @return Date 日期对象
-     */
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    /**
-     * 设置创建记录时间
-     *
-     * @param createTime
-     *            日期对象
-     */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    /**
-     * 获取更新记录时间
-     *
-     * @return Date 日期对象
-     */
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    /**
-     * 设置更新记录时间
-     *
-     * @param updateTime
-     *            日期对象
-     */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    /**
-     * 获取开始时间（用于根据时间段进行查询）
-     *
-     * @return Date 开始时间
-     */
-    public Date getDateStart() {
-        return dateStart;
-    }
-
-    /**
-     * 设置开始时间（用于根据时间段进行查询）
-     *
-     * @param dateStart
-     *            开始时间
-     */
-    public void setDateStart(Date dateStart) {
-        this.dateStart = dateStart;
-    }
-
-    /**
-     * 获取结束时间（用于根据时间段进行查询）
-     *
-     * @return Date 结束时间
-     */
-    public Date getDateEnd() {
-        return dateEnd;
-    }
-
-    /**
-     * 设置结束时间（用于根据时间段进行查询）
-     *
-     * @param dateEnd
-     *            结束时间
-     */
-    public void setDateEnd(Date dateEnd) {
-        this.dateEnd = dateEnd;
-    }
-
-    /**
-     * 快速获取泛型模型名称（首字母小写）
-     *
-     * @return 返回泛型模型名称
-     */
-    public String getModelName() {
-        String modelName = this.getClass().getName();
-        return modelName.substring(modelName.lastIndexOf(".") + 1, modelName.lastIndexOf(".") + 2).toLowerCase()
-                + modelName.substring(modelName.lastIndexOf(".") + 2);
-    }
-
-    /**
-     * 快速获取泛型模型名称（首字母大写）
-     *
-     * @return 返回泛型模型名称
-     */
-    public String getClazzName() {
-        String modelName = this.getClass().getName();
-        return modelName.substring(modelName.lastIndexOf(".") + 1);
-    }
+    @Column(name = "is_delete",columnDefinition = "int(1) comment '是否被删除' default '0'")
+    private Long isDelete;
 
     /**
      * 快速将实体输出成字符串

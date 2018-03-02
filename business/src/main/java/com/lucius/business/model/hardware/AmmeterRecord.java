@@ -19,6 +19,8 @@ import java.util.Date;
 @org.hibernate.annotations.Table(appliesTo = "ammeter_record", comment = "电表同步电量记录")
 public class AmmeterRecord extends BaseModel {
 
+    private static final long serialVersionUID = -6681215055636185889L;
+
     @Column(name = "num",columnDefinition = "float(11) comment '电表读数'", scale = 2)
     private Double num;
 

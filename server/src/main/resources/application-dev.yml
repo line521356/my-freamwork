@@ -39,7 +39,6 @@ spring:
       username: root
       password: 1234
       driver-class-name: com.mysql.cj.jdbc.Driver
-      type: com.alibaba.druid.pool.DruidDataSource
       initialSize: 5
       minIdle: 5
       maxActive: 20
@@ -61,7 +60,6 @@ spring:
         username: root
         password: 1234
         driver-class-name: com.mysql.cj.jdbc.Driver
-        type: com.alibaba.druid.pool.DruidDataSource
         initialSize: 5
         minIdle: 5
         maxActive: 20

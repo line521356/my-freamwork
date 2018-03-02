@@ -20,6 +20,7 @@ import javax.persistence.*;
 @org.hibernate.annotations.Table(appliesTo = "hardware_error_info", comment = "硬件设备异常信息")
 public class HardwareErrorInfo extends BaseModel{
 
+    private static final long serialVersionUID = -7754439565621416241L;
     /**
      * 所属硬件
      */

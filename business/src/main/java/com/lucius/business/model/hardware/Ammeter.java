@@ -21,7 +21,7 @@ import java.util.Date;
 @Table(name = "ammeter",uniqueConstraints = {@UniqueConstraint(columnNames={"dev_id", "version"})})
 @org.hibernate.annotations.Table(appliesTo = "ammeter", comment = "电表")
 public class Ammeter extends BaseModel{
-    private static final long serialVersionUID = 1L;
+
 
     /**
      * 电表的devId

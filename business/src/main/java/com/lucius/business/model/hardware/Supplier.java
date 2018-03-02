@@ -17,8 +17,9 @@ import javax.persistence.*;
 @Table(name = "supplier")
 @org.hibernate.annotations.Table(appliesTo = "supplier", comment = "供应商信息")
 public class Supplier extends BaseModel {
-	private static final long serialVersionUID = 1L;
 
+
+	private static final long serialVersionUID = -209444016944642858L;
 	/**
 	 * 供应商名
 	 */
