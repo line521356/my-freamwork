@@ -21,10 +21,10 @@ public class AmmeterRecord extends BaseModel {
 
     private static final long serialVersionUID = -6681215055636185889L;
 
-    @Column(name = "num",columnDefinition = "float(11) comment '电表读数'", scale = 2)
+    @Column(name = "num",columnDefinition = "double comment '电表读数'", scale = 2)
     private Double num;
 
-    @Column(name = "public_num",columnDefinition = "float(11) comment '公摊值'", scale = 2)
+    @Column(name = "public_num",columnDefinition = "double comment '公摊值'", scale = 2)
     private Double publicNum;
 
     @Temporal(TemporalType.TIMESTAMP)

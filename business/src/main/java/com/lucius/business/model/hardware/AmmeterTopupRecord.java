@@ -23,7 +23,7 @@ public class AmmeterTopupRecord extends BaseModel {
     @Column(columnDefinition = "varchar(128) comment '是否成功'")
     private String isSuccess;
 
-    @Column(name = "money",columnDefinition = "float(11) comment '充值金额'", scale = 2)
+    @Column(name = "money",columnDefinition = "double comment '充值金额'", scale = 2)
     private Double money;
 
     @Column(columnDefinition = "varchar(128) comment '来源 0=微信,1=管家,2=其他'")

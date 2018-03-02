@@ -22,16 +22,16 @@ public class AmmeterUseRecord extends BaseModel {
 
     private static final long serialVersionUID = -3299818945660296042L;
 
-    @Column(name = "public_money",columnDefinition = "float(11) comment '公摊使用金额'", scale = 2)
+    @Column(name = "public_money",columnDefinition = "double comment '公摊使用金额'", scale = 2)
     private Double publicMoney;
 
-    @Column(name = "remain_money",columnDefinition = "float(11) comment '剩余金额'", scale = 2)
+    @Column(name = "remain_money",columnDefinition = "double comment '剩余金额'", scale = 2)
     private Double remainMoney;
 
     @Column(name = "remark",columnDefinition = "varchar(32) comment '备注'")
     private String remark;
 
-    @Column(name = "total_money",columnDefinition = "float(11) comment '总使用金额'", scale = 2)
+    @Column(name = "total_money",columnDefinition = "double comment '总使用金额'", scale = 2)
     private Double totalMoney;
 
     /**
@@ -45,10 +45,10 @@ public class AmmeterUseRecord extends BaseModel {
     @Column(columnDefinition = "datetime comment '更新记录时间'")
     private Date readDate;
 
-    @Column(name = "using_before",columnDefinition = "float(11) comment '使用前金额'", scale = 2)
+    @Column(name = "using_before",columnDefinition = "double comment '使用前金额'", scale = 2)
     private Double usingBefore;
 
-    @Column(name = "using_money",columnDefinition = "float(11) comment '使用金额'", scale = 2)
+    @Column(name = "using_money",columnDefinition = "double comment '使用金额'", scale = 2)
     private Double usingMoney;
 
 

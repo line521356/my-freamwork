@@ -38,7 +38,7 @@ public class Ammeter extends BaseModel{
     /**
      * 电表计费单价，多少钱一度电
      */
-    @Column(name = "electricity_price",columnDefinition = "float(11) comment '电表计费单价'", scale = 2)
+    @Column(name = "electricity_price",columnDefinition = "double comment '电表计费单价'", scale = 2)
     private Double electricityPrice;
 
     /**
@@ -56,7 +56,7 @@ public class Ammeter extends BaseModel{
     /**
      * 公摊值
      */
-    @Column(name = "public_num",columnDefinition = "float(11) comment '公摊值'", scale = 2)
+    @Column(name = "public_num",columnDefinition = "double comment '公摊值'", scale = 2)
     private Double publicNum;
     /**
      * 在线状态 on：在线 off：离线
@@ -80,7 +80,7 @@ public class Ammeter extends BaseModel{
     /**
      * 分摊比例
      */
-    @Column(name = "share",columnDefinition = "float(11) comment '分摊比例'", scale = 2)
+    @Column(name = "share",columnDefinition = "double comment '分摊比例'", scale = 2)
     private Double share;
 
     /**
