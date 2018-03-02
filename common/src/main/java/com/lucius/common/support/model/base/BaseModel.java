@@ -48,6 +48,12 @@ public class BaseModel implements Serializable {
     private Date updateTime;
 
     /**
+     * 版本号 有效数据永远为1
+     */
+    @Column(name = "version",columnDefinition = "varchar(50) comment '版本号' default '1'")
+    private String version;
+
+    /**
      * 开始时间（用于查询）
      */
     @Transient

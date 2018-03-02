@@ -1,6 +1,6 @@
 package com.lucius.business.service;
 
-import com.lucius.business.model.Ammeter;
+import com.lucius.business.model.hardware.Ammeter;
 import org.springframework.data.domain.Page;
 
 /**

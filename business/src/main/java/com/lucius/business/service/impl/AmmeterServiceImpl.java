@@ -1,11 +1,13 @@
 package com.lucius.business.service.impl;
 
-import com.lucius.business.dao.AmmeterRepository;
-import com.lucius.business.model.Ammeter;
+import com.lucius.business.dao.hardware.AmmeterRepository;
+import com.lucius.business.model.hardware.Ammeter;
 import com.lucius.business.service.AmmeterService;
 import com.lucius.common.support.dao.reposiotry.kit.SimplePageBuilder;
 import com.lucius.common.support.dao.reposiotry.kit.SimpleSortBuilder;
+import com.lucius.common.support.dao.specification.SimpleSpecificationBuilder;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,7 +28,12 @@ public class AmmeterServiceImpl implements AmmeterService{
 
     @Override
     public Page<Ammeter> getAmmeter(Ammeter ammeter) {
-        return ammeterRepository.findAll(SimplePageBuilder.generate(0,10
-                , SimpleSortBuilder.generateSort("id_d")));
+        SimpleSpecificationBuilder simpleSpecificationBuilder = new SimpleSpecificationBuilder();
+        simpleSpecificationBuilder.add("id","=","1");
+        Specification<Ammeter> specification = simpleSpecificationBuilder.generateSpecification();
+        Page <Ammeter> page = ammeterRepository.findAll(specification
+                ,SimplePageBuilder.generate(0,10
+                        , SimpleSortBuilder.generateSort("id_d")));
+        return page;
     }
 }
